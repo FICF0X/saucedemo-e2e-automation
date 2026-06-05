@@ -1,19 +1,20 @@
-Feature: User login
-  As a shopper
-  I want to sign in to the store
-  So that I can browse and purchase products
+# language: es
+Característica: Inicio de sesión
+  Como comprador
+  Quiero iniciar sesión en la tienda
+  Para poder navegar y comprar productos
 
-  Scenario: A registered shopper signs in successfully
-    Given the shopper is on the login page
-    When the shopper signs in with valid credentials
-    Then the products page is displayed
+  Escenario: Un comprador registrado inicia sesión correctamente
+    Dado el comprador está en la página de inicio de sesión
+    Cuando el comprador inicia sesión con credenciales válidas
+    Entonces se muestra la página de productos
 
-  Scenario: A locked-out shopper is blocked from signing in
-    Given the shopper is on the login page
-    When the locked-out shopper attempts to sign in
-    Then an account-locked message is shown
+  Escenario: Un comprador bloqueado no puede iniciar sesión
+    Dado el comprador está en la página de inicio de sesión
+    Cuando el comprador bloqueado intenta iniciar sesión
+    Entonces se muestra un mensaje de cuenta bloqueada
 
-  Scenario: Sign in is rejected with unknown credentials
-    Given the shopper is on the login page
-    When the shopper signs in with an unknown username and password
-    Then an invalid-credentials message is shown
+  Escenario: Se rechaza el inicio de sesión con credenciales desconocidas
+    Dado el comprador está en la página de inicio de sesión
+    Cuando el comprador inicia sesión con un usuario y contraseña desconocidos
+    Entonces se muestra un mensaje de credenciales inválidas

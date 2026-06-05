@@ -10,11 +10,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Cucumber lifecycle hooks. Runs around every scenario.
+ * Hooks del ciclo de vida de Cucumber. Se ejecutan alrededor de cada escenario.
  *
- * On failure it captures a screenshot — attached to the Cucumber report and
- * saved under target/screenshots — because the first thing a QA engineer does
- * with a failing UI test is look at what the browser actually showed.
+ * Ante un fallo captura una pantalla —adjunta al reporte de Cucumber y guardada
+ * en target/screenshots— porque lo primero que hace un QA con una prueba de UI
+ * que falla es mirar qué mostró realmente el navegador.
  */
 public class Hooks {
 

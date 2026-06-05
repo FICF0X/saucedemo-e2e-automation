@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * The products (inventory) page shown after a successful login.
+ * La página de productos (inventario) que se muestra tras un login exitoso.
  */
 public class InventoryPage extends BasePage {
 

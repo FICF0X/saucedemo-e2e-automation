@@ -5,11 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 /**
- * Owns the WebDriver lifecycle.
+ * Maneja el ciclo de vida del WebDriver.
  *
- * The driver is held in a ThreadLocal so that, if tests ever run in parallel,
- * each thread gets its own isolated browser. Selenium 4's built-in Selenium
- * Manager downloads the matching ChromeDriver automatically — no manual setup.
+ * El driver se guarda en un ThreadLocal para que, si en algún momento las
+ * pruebas corren en paralelo, cada hilo tenga su propio navegador aislado.
+ * El Selenium Manager de Selenium 4 descarga el ChromeDriver correcto solo.
  */
 public final class DriverManager {
 
@@ -27,8 +27,8 @@ public final class DriverManager {
 
     private static WebDriver createDriver() {
         ChromeOptions options = new ChromeOptions();
-        // Headless by default so the suite runs on CI and without popping windows.
-        // Set HEADLESS=false to watch the browser drive itself.
+        // Headless por defecto para correr en CI y sin abrir ventanas.
+        // Usa HEADLESS=false para ver el navegador manejándose solo.
         if (!"false".equalsIgnoreCase(System.getenv("HEADLESS"))) {
             options.addArguments("--headless=new");
         }
@@ -37,8 +37,8 @@ public final class DriverManager {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
 
-        // No implicit wait on purpose: mixing implicit and explicit waits leads
-        // to unpredictable timing. We rely solely on explicit waits in BasePage.
+        // Sin implicit wait a propósito: mezclar esperas implícitas y explícitas
+        // genera tiempos impredecibles. Usamos solo esperas explícitas en BasePage.
         return new ChromeDriver(options);
     }
 

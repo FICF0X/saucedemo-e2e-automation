@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * The login page (https://www.saucedemo.com/).
- * All selectors for this screen live here and nowhere else.
+ * La página de inicio de sesión (https://www.saucedemo.com/).
+ * Todos los selectores de esta pantalla viven aquí y en ningún otro lado.
  */
 public class LoginPage extends BasePage {
 

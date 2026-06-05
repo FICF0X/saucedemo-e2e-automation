@@ -1,8 +1,8 @@
 <div align="center">
 
-# 🧪 SauceDemo E2E Automation
+# 🧪 Automatización E2E de SauceDemo
 
-**End-to-end UI test automation with Selenium, Cucumber (BDD) and the Page Object Model.**
+**Automatización de pruebas de UI end-to-end con Selenium, Cucumber (BDD) y el patrón Page Object.**
 
 [![Java](https://img.shields.io/badge/Java-17%2B-007396?style=flat-square&logo=openjdk&logoColor=white)](#)
 [![Selenium](https://img.shields.io/badge/Selenium-4-43B02A?style=flat-square&logo=selenium&logoColor=white)](#)
@@ -13,48 +13,48 @@
 
 ---
 
-## What this is
+## Qué es
 
-An automated regression suite that drives a real browser through the core user
-journeys of [saucedemo.com](https://www.saucedemo.com/) — a public site built for
-practising UI automation. It is written **BDD-first**: every test starts as a
-business-readable scenario, then is wired to the browser through reusable Page
-Objects.
+Una suite de pruebas automatizadas que maneja un navegador real a través de los
+flujos principales de [saucedemo.com](https://www.saucedemo.com/) — un sitio público
+hecho para practicar automatización de UI. Está escrita **BDD-first**: cada prueba
+nace como un escenario legible para el negocio y luego se conecta al navegador a
+través de Page Objects reutilizables.
 
-It demonstrates three things a QA automation engineer is expected to know:
+Demuestra tres cosas que se le piden a un ingeniero de automatización QA:
 
-- **BDD with Gherkin** — tests described in plain business language (`Given / When / Then`).
-- **The Page Object Model** — UI selectors live in one place per page, so a UI
-  change touches one file, not every test.
-- **Stable Selenium 4** — explicit waits and Selenium Manager (zero manual driver setup).
+- **BDD con Gherkin** — pruebas descritas en lenguaje de negocio (`Dado / Cuando / Entonces`), en español.
+- **Patrón Page Object** — los selectores de UI viven en un solo lugar por página, así
+  un cambio en la interfaz toca un archivo, no todas las pruebas.
+- **Selenium 4 estable** — esperas explícitas y Selenium Manager (cero configuración de drivers).
 
-## Coverage
+## Cobertura
 
-| Feature | Scenarios |
-|---------|-----------|
-| **Login** | successful sign-in · locked-out user blocked · invalid credentials rejected |
+| Funcionalidad | Escenarios |
+|---------------|-----------|
+| **Login** | inicio de sesión exitoso · usuario bloqueado · credenciales inválidas rechazadas |
 
-## Tech stack
+## Stack
 
 `Java 17+` · `Selenium 4` · `Cucumber 7` · `JUnit Platform` · `AssertJ` · `Maven Wrapper`
 
-## Project structure
+## Estructura del proyecto
 
 ```
 src/test/
-├── resources/features/        # Gherkin — WHAT is tested (business language)
+├── resources/features/        # Gherkin — QUÉ se prueba (lenguaje de negocio)
 │   └── login.feature
 └── java/com/ficf0x/saucedemo/
-    ├── pages/                 # Page Objects — the selectors for each screen
-    ├── hooks/                 # browser lifecycle (created/closed per scenario)
-    ├── steps/                 # glue: connects Gherkin to Page Objects
-    └── runners/               # RunCucumberTest — entry point
+    ├── pages/                 # Page Objects — los selectores de cada pantalla
+    ├── hooks/                 # ciclo de vida del navegador (uno por escenario)
+    ├── steps/                 # pegamento: conecta el Gherkin con los Page Objects
+    └── runners/               # RunCucumberTest — punto de entrada
 ```
 
-## Running the tests
+## Cómo correr las pruebas
 
-You only need a **JDK (17+)** and **Google Chrome**. Maven itself is bundled via
-the wrapper, and Selenium Manager downloads the matching ChromeDriver on the fly.
+Solo necesitas un **JDK (17+)** y **Google Chrome**. Maven viene incluido vía el
+wrapper, y Selenium Manager descarga el ChromeDriver correcto automáticamente.
 
 ```bash
 # Linux / macOS
@@ -64,7 +64,7 @@ the wrapper, and Selenium Manager downloads the matching ChromeDriver on the fly
 mvnw.cmd test
 ```
 
-By default the browser runs **headless**. To watch it drive the UI:
+Por defecto el navegador corre **headless**. Para verlo manejar la UI:
 
 ```bash
 # Linux / macOS
@@ -74,22 +74,23 @@ HEADLESS=false ./mvnw test
 $env:HEADLESS="false"; mvnw.cmd test
 ```
 
-A readable HTML report is written to `target/cucumber-report.html` after each run.
+Tras cada corrida se genera un reporte HTML legible en `target/cucumber-report.html`,
+y si un escenario falla se guarda una captura en `target/screenshots/`.
 
-## Why these choices
+## Por qué estas decisiones
 
-- **BDD over plain JUnit** — the scenarios double as living documentation a
-  non-technical stakeholder can read and validate.
-- **Page Object Model over inline selectors** — isolates change. When the site's
-  markup shifts, exactly one Page Object changes.
-- **Maven Wrapper** — anyone can clone and run with just a JDK; no global Maven install.
+- **BDD en vez de JUnit plano** — los escenarios sirven además como documentación viva
+  que un interesado no técnico puede leer y validar.
+- **Page Object en vez de selectores embebidos** — aísla el cambio. Cuando el HTML del
+  sitio se modifica, cambia exactamente un Page Object.
+- **Maven Wrapper** — cualquiera clona y corre con solo un JDK; sin instalar Maven.
 
 ## Roadmap
 
-- Checkout / purchase flow (cart → delivery details → order confirmation).
-- CI workflow (GitHub Actions) running the suite headless on every push.
-- Cross-browser runs (Firefox, Edge) via a parameterised driver.
+- Flujo de compra / checkout (carrito → datos de envío → confirmación del pedido).
+- Workflow de CI (GitHub Actions) que corra la suite en headless en cada push.
+- Ejecución cross-browser (Firefox, Edge) con un driver parametrizable.
 
-## License
+## Licencia
 
 MIT © Rafael Linares

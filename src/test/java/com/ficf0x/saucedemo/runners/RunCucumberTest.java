@@ -5,11 +5,11 @@ import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 
 /**
- * Entry point for the test suite.
+ * Punto de entrada de la suite de pruebas.
  *
- * JUnit Platform discovers this class, hands control to the Cucumber engine,
- * which loads every .feature file under src/test/resources/features and runs it.
- * Maven Surefire runs this class on `mvn test`.
+ * JUnit Platform descubre esta clase y le pasa el control al motor de Cucumber,
+ * que carga y ejecuta cada archivo .feature de src/test/resources/features.
+ * Maven Surefire ejecuta esta clase con `mvn test`.
  */
 @Suite
 @IncludeEngines("cucumber")

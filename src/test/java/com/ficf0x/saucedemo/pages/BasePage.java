@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Shared behaviour for every Page Object.
+ * Comportamiento común a todos los Page Objects.
  *
- * Centralises the explicit waits and the basic interactions (type, click, read)
- * so the concrete pages stay focused on WHAT they expose, not HOW to wait.
+ * Centraliza las esperas explícitas y las interacciones básicas (escribir,
+ * hacer clic, leer) para que cada página se enfoque en QUÉ expone, no en CÓMO esperar.
  */
 public abstract class BasePage {
 
